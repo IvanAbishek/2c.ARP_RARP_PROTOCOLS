@@ -19,7 +19,7 @@ P
 ## PROGRAM - ARP
 
 Server:
-
+```
 #arp_server.py
 import socket
 #Create socket
@@ -42,9 +42,9 @@ mac = arp_table[ip]
 conn.send(mac.encode())
 conn.close()
 s.close()
-
+```
 Client:
-
+```
 #arp_client.py
 import socket
 s = socket.socket()
@@ -54,7 +54,7 @@ s.send(ip.encode())
 mac = s.recv(1024).decode()
 print("MAC Address:", mac)
 s.close()
-
+```
 ## OUPUT - ARP
 Server:
 
@@ -68,7 +68,7 @@ Client:
 ## PROGRAM - RARP
 
 Server:
-
+```
 #rarp_server.py
 import socket
 # RARP Table (MAC : IP)
@@ -89,10 +89,10 @@ ip = rarp_table.get(mac, "MAC address not found in RARP table")
 conn.send(ip.encode())
 conn.close()
 server.close()
-
+```
 
 Client:
-
+```
 #rarp_client.py
 import socket
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -102,7 +102,7 @@ client.send(mac.encode())
 ip = client.recv(1024).decode()
 print("IP Address:", ip)
 client.close()
-
+```
 ## OUPUT -RARP
 Server:
 
